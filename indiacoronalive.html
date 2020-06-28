@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Muli&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>	<style type="text/css">
+
+html{
+	scroll-behavior: smooth;
+}
+
+
+	*{ margin: 0; padding: 0; box-sizing: border-box; font-family: 'Muli', sans-serif; }
+
+.nav_style{
+	background-color: #a29bfe!important ;
+}
+.nav_style a{
+	color: white;}
+
+.main_header{
+	height: 450px;
+	width: 100%;
+}
+.rightside{
+	font-size: 3rem;
+}
+.corona_rot img{
+	animation: gocorona 3s linear infinite;
+}
+@keyframes gocorona{
+	0% {transform: rotate(0);}
+	100%{transform: rotate(360deg);}
+}
+
+.leftside img{ animation: heartbeat 5s linear infinite; }
+
+@keyframes heartbeat
+{
+	0%
+	{
+		transform: scale(.75);
+	}
+
+	20%
+	{
+		transform: scale(1);
+	}
+
+	40%
+	{
+		transform: scale(.75);
+	}
+
+	60%
+	{
+		transform: scale(1);
+	}
+
+	80%
+	{
+		transform: scale(.75);
+	}
+
+	100%
+	{
+		transform: scale(0.75);
+	}
+}
+.corona_update{
+	margin: 0 0 30px 0;
+}
+.corona_update h3{ color: #ff7675; }
+.corona_update h1{ font-size: 2rem; text-align: center;}
+
+.sub_section{
+	background-color: #fdfafd; 
+}
+
+.footer_style{
+	background-color: #a29bfe !important;
+}
+.footer_style p{
+	margin-bottom: 0!important;
+}
+
+#myBtn{
+	display: none;
+	position: fixed;
+	bottom: 30px;
+	right: 40px;
+	z-index: 99;
+	border: none;
+	outline: none;
+	background-color: #00A8FF;
+	color: white;
+	cursor: pointer;
+	padding: 10px;
+	border-radius: 10px;
+}
+#myBtn:hover{
+	background: #606060;
+}
+</style></head>
+<body onload="fetch()"> 
+
+  <nav class="navbar navbar-expand-lg nav_style p-3">
+  <a class="navbar-brand pl-5" href="#">COVID-19</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto pr-5">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<section class="corona_update container-fluid">
+  <div class="my-5">
+    <h3 class="text-uppercase text-center">live covid-19 updates india</h3>
+  </div>
+
+  <div class="table-responsive">
+    <table class=" table table-bordered table-striped text-center" id="tbval">
+      <tr>
+        <th>LastUpdatedTime</th>
+        <th>State</th>
+        <th>Confirmed</th>
+        <th>Active</th>
+        <th>Recovered</th>
+        <th>Deaths</th>
+      </tr>
+
+
+<tr>
+  <td>27/06/2020 20:36:15</td>
+  <td>Maharashtra</td>
+  <td>159133</td>
+  <td>67600</td>
+  <td>84245</td>
+  <td>7273</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 18:46:18</td>
+  <td>Tamil Nadu</td>
+  <td>78335</td>
+  <td>33216</td>
+  <td>44094</td>
+  <td>1025</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 19:25:15</td>
+  <td>Delhi</td>
+  <td>80188</td>
+  <td>28329</td>
+  <td>49301</td>
+  <td>2558</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 21:06:16</td>
+  <td>Gujarat</td>
+  <td>30771</td>
+  <td>6564</td>
+  <td>22417</td>
+  <td>1790</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 16:28:15</td>
+  <td>Uttar Pradesh</td>
+  <td>21549</td>
+  <td>6685</td>
+  <td>14215</td>
+  <td>649</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 21:35:18</td>
+  <td>Rajasthan</td>
+  <td>16944</td>
+  <td>3186</td>
+  <td>13367</td>
+  <td>391</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 18:37:16</td>
+  <td>West Bengal</td>
+  <td>16711</td>
+  <td>5293</td>
+  <td>10789</td>
+  <td>629</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 20:25:16</td>
+  <td>Madhya Pradesh</td>
+  <td>12965</td>
+  <td>2444</td>
+  <td>9971</td>
+  <td>550</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 20:15:20</td>
+  <td>Haryana</td>
+  <td>13427</td>
+  <td>4737</td>
+  <td>8472</td>
+  <td>218</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 09:41:15</td>
+  <td>State Unassigned</td>
+  <td>8023</td>
+  <td>8023</td>
+  <td>0</td>
+  <td>0</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 20:55:11</td>
+  <td>Karnataka</td>
+  <td>11923</td>
+  <td>4439</td>
+  <td>7289</td>
+  <td>191</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 14:26:16</td>
+  <td>Andhra Pradesh</td>
+  <td>12285</td>
+  <td>6648</td>
+  <td>5480</td>
+  <td>157</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 22:04:16</td>
+  <td>Bihar</td>
+  <td>8980</td>
+  <td>1992</td>
+  <td>6930</td>
+  <td>58</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 22:46:16</td>
+  <td>Telangana</td>
+  <td>13436</td>
+  <td>8265</td>
+  <td>4928</td>
+  <td>243</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 20:15:22</td>
+  <td>Jammu and Kashmir</td>
+  <td>6966</td>
+  <td>2648</td>
+  <td>4225</td>
+  <td>93</td>
+</tr>
+
+<tr>
+  <td>28/06/2020 00:25:16</td>
+  <td>Assam</td>
+  <td>7166</td>
+  <td>2338</td>
+  <td>4815</td>
+  <td>10</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 17:45:18</td>
+  <td>Odisha</td>
+  <td>6350</td>
+  <td>1719</td>
+  <td>4606</td>
+  <td>25</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 21:45:17</td>
+  <td>Punjab</td>
+  <td>5056</td>
+  <td>1608</td>
+  <td>3320</td>
+  <td>128</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 18:46:20</td>
+  <td>Kerala</td>
+  <td>4072</td>
+  <td>1939</td>
+  <td>2108</td>
+  <td>23</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 19:34:16</td>
+  <td>Uttarakhand</td>
+  <td>2791</td>
+  <td>827</td>
+  <td>1909</td>
+  <td>37</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 23:16:16</td>
+  <td>Chhattisgarh</td>
+  <td>2602</td>
+  <td>652</td>
+  <td>1937</td>
+  <td>13</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 22:15:15</td>
+  <td>Jharkhand</td>
+  <td>2339</td>
+  <td>603</td>
+  <td>1724</td>
+  <td>12</td>
+</tr>
+
+<tr>
+  <td>28/06/2020 00:10:19</td>
+  <td>Tripura</td>
+  <td>1339</td>
+  <td>260</td>
+  <td>1078</td>
+  <td>1</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 18:27:16</td>
+  <td>Ladakh</td>
+  <td>960</td>
+  <td>405</td>
+  <td>554</td>
+  <td>1</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 20:55:14</td>
+  <td>Goa</td>
+  <td>1128</td>
+  <td>706</td>
+  <td>420</td>
+  <td>2</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 22:04:23</td>
+  <td>Himachal Pradesh</td>
+  <td>894</td>
+  <td>372</td>
+  <td>501</td>
+  <td>8</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 19:52:26</td>
+  <td>Manipur</td>
+  <td>1092</td>
+  <td>660</td>
+  <td>432</td>
+  <td>0</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 22:04:25</td>
+  <td>Chandigarh</td>
+  <td>428</td>
+  <td>87</td>
+  <td>335</td>
+  <td>6</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 11:45:19</td>
+  <td>Puducherry</td>
+  <td>619</td>
+  <td>388</td>
+  <td>221</td>
+  <td>10</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 17:57:15</td>
+  <td>Nagaland</td>
+  <td>387</td>
+  <td>223</td>
+  <td>164</td>
+  <td>0</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 21:26:17</td>
+  <td>Mizoram</td>
+  <td>150</td>
+  <td>95</td>
+  <td>55</td>
+  <td>0</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 21:26:19</td>
+  <td>Arunachal Pradesh</td>
+  <td>177</td>
+  <td>122</td>
+  <td>54</td>
+  <td>1</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 23:32:18</td>
+  <td>Sikkim</td>
+  <td>87</td>
+  <td>38</td>
+  <td>49</td>
+  <td>0</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 15:26:17</td>
+  <td>Dadra and Nagar Haveli and Daman and Diu</td>
+  <td>184</td>
+  <td>127</td>
+  <td>56</td>
+  <td>0</td>
+</tr>
+
+<tr>
+  <td>26/06/2020 19:15:20</td>
+  <td>Andaman and Nicobar Islands</td>
+  <td>72</td>
+  <td>29</td>
+  <td>43</td>
+  <td>0</td>
+</tr>
+
+<tr>
+  <td>27/06/2020 00:02:19</td>
+  <td>Meghalaya</td>
+  <td>48</td>
+  <td>5</td>
+  <td>42</td>
+  <td>1</td>
+</tr>
+
+<tr>
+  <td>26/03/2020 07:19:29</td>
+  <td>Lakshadweep</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
+</tr>
+    </table>
+    
+  </div>
+</section>
+
+
+<div class="container scrolltop float-right pr-5">
+  <i class="fa fa-arrow-up" onclick="topFunction()" id="myBtn"></i>
+</div>  
+
+<!-- //////////////////footer///////////////  -->   
+
+<footer class="mt-5">
+  <div class="footer_style text-white text-center container-fluid" >
+    <p>
+      Copyright by Sameer Kumar Thakur
+    </p>
+    
+  </div>
+  
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ waypoints/4.0.1/jquery.waypoints.min.js" integrity="
+sha256-jDnOKIOq2KNsQZTcBTEnsp76FnfMEttF6AV2DF2fFNE=" crossorigin="anonymous"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/ jquery.counterup.min.js" integrity="sha256-JtQPj/3xub8oapVMaIijPNoM0DHoAtgh/gwFYuN5rik="crossorigin="anonymous"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16./umd/popper.min.js"></script> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"> </script>
+
+
+
+
+<script>
+
+
+  mybutton = document.getElementById("myBtn");
+
+  window.onscroll = function() { scrollFunction()};
+  function scrollFunction(){
+  if(document.body.scrollTop > 100 || document.documentElement.scrollTop > 100){
+    mybutton.style.display = "block";
+  }else{
+    mybutton.style.display = "none";
+  }
+}
+
+  function topFunction(){
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop=0;
+  }
+   
+
+
+
+</script>  
+
+</body>
+</html>
